@@ -4,6 +4,11 @@ Somente criar o registro se o usuário existir, se não retornar uma mensagem de
 - Fazer as edições(Put) para cada uma cadas tabelas.
 Também, verificando antes se o ID existe.
 
+Desafio:
+- Usar query params ao invés de enviar as coisas pelo @Body() - @Req()
+
+http://localhost:3000/user/create?nome=asdasd?email
+
 
 - Criar serviço(básico, sem nada) -> Criar Controller(básico, sem nada) -> Criar Módulo (Importando controller)
 

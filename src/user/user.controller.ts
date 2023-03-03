@@ -4,7 +4,9 @@ import {
   InternalServerErrorException,
   HttpCode,
   HttpStatus,
-  Body
+  Body,
+  Post,
+  Put
 } from '@nestjs/common';
 import { UserService } from './user.service';
 
@@ -40,5 +42,35 @@ export class UserController {
         throw new InternalServerErrorException();
       });
     return contacts;
+  }
+
+  @Post('createUser')
+  @HttpCode(HttpStatus.OK)
+  async createUser(@Body() body) {
+    const cretUser = await this.userService
+      .createUser(body.nome, body.email)
+      .then((result) => {
+        return result;
+      })
+      .catch((e) => {
+        console.log(e);
+        throw new InternalServerErrorException();
+      });
+    return cretUser;
+  }
+
+  @Put('updateUser')
+  @HttpCode(HttpStatus.OK)
+  async updateUser(@Body() body) {
+    const cretUser = await this.userService
+      .updateUser(body.id, body.email)
+      .then((result) => {
+        return result;
+      })
+      .catch((e) => {
+        console.log(e);
+        throw new InternalServerErrorException();
+      });
+    return cretUser;
   }
 }
