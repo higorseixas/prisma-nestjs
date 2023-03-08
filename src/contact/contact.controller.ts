@@ -9,7 +9,6 @@ import {
   Put,
   Req
 } from '@nestjs/common';
-import { query } from 'express';
 import { ContactService } from './contact.service';
 
 @Controller('contact')
